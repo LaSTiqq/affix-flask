@@ -1,0 +1,623 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Home -->
+<section class="home">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="height"></div>
+				<div class="col-12 col-md-10">
+					<div class="overlay-header">
+						<div data-aos="fade-up">
+							<h1 class="text-center"><span class="fw-bold">AFFIX</span> ir uzņēmums, kura
+								pamatdarbība ir saistīta ar elektroietaisēm un saules paneļiem</h1>
+						</div>
+					</div>
+					<div data-aos="fade-down">
+						<a class="button text-center fw-bold d-block mx-auto mt-4" href="#services">Uzzināt vairāk</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Services -->
+<div class="container-fluid main">
+	<div class="container">
+		<section class="services">
+			<a class="position-relative anchor" name="services"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="pt-3 pt-lg-4">Pakalpojumi</h1>
+					</blockquote>
+					<figcaption class="blockquote-footer">Ko mēs darām?</figcaption>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			<div class="row">
+				<!-- Modal button 1 -->
+				<div class="col-6 col-lg-3">
+					<div data-aos="zoom-in-right" data-aos-offset="200">
+						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+							title="Spied mani">
+							<button type="button" data-bs-toggle="modal" data-bs-target="#Modal1" class="btn">
+								<span class="material-icons">design_services</span>
+							</button>
+						</div>
+						<h3 class="text-center mt-3">Elektroietaišu projektēšana un autoruzraudzība</h3>
+					</div>
+				</div>
+				<!-- Modal button 2 -->
+				<div class="col-6 col-lg-3">
+					<div data-aos="zoom-in-right" data-aos-offset="200">
+						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+							title="Spied mani">
+							<button type="button" data-bs-toggle="modal" data-bs-target="#Modal2" class="btn">
+								<span class="material-icons second">construction</span>
+							</button>
+						</div>
+						<h3 class="text-center mt-3">Elektroietaišu izbūve</h3>
+					</div>
+				</div>
+				<!-- Modal button 3 -->
+				<div class="col-6 col-lg-3">
+					<div data-aos="zoom-in-left" data-aos-offset="200">
+						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+							title="Spied mani">
+							<button type="button" data-bs-toggle="modal" data-bs-target="#Modal3" class="btn">
+								<span class="material-icons">engineering</span>
+							</button>
+						</div>
+						<h3 class="text-center mt-3">Elektroietaišu izbūves darbu vadīšana un būvuzraudzība</h3>
+					</div>
+				</div>
+				<!-- Modal button 4 -->
+				<div class="col-6 col-lg-3">
+					<div data-aos="zoom-in-left" data-aos-offset="200">
+						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+							title="Spied mani">
+							<button type="button" data-bs-toggle="modal" data-bs-target="#Modal4" class="btn">
+								<span class="material-icons">troubleshoot</span>
+							</button>
+						</div>
+						<h3 class="text-center mt-3">Elektroietaišu tehnisko parametru mērīšana un pārbaude</h3>
+					</div>
+				</div>
+				<div class="col-12">
+					<div data-aos="zoom-in-up">
+						<p class="text-center mt-2"><span class="fw-bold">NACE2 4321</span> Elektroinstalāciju
+							ierīkošana</p>
+					</div>
+				</div>
+				<!-- Modal button 5 -->
+				<div class="col-12">
+					<div data-aos="zoom-in-up" data-aos-offset="200">
+						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+							title="Spied mani">
+							<button type="button" data-bs-toggle="modal" data-bs-target="#Modal5" class="btn">
+								<span class="material-icons">solar_power</span>
+							</button>
+						</div>
+						<h3 class="text-center mt-3">Saules enerģētika<br>
+							<span class="text-danger fw-bold position-relative new">Jaunums!</span>
+						</h3>
+						<!-- Modal button 6 -->
+						<button class="button text-center fw-bold d-block mx-auto" data-bs-toggle="modal"
+							data-bs-target="#Modal6">Uzzināt vairāk
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Customers -->
+		<section class="customers">
+			<a class="position-relative anchor" name="partners"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="pt-4 pt-lg-3">Partneri</h1>
+					</blockquote>
+					<figcaption class="blockquote-footer">Ar ko mēs sadarbojamies?</figcaption>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			<div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_1.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_1.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Latgales dārzeņu loģistika logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Latgales dārzeņu loģistika, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2"
+								href="https://www.google.com/search?q=latgales+darzenu+logistika">Meklēt</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_2.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_2.png') }}"
+								class="d-block mx-auto"
+								alt="Uzņēmuma Mežvidu lauksaimniecības tehnoloģiju parks logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Mežvidu lauksaimniecības tehnoloģiju parks, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2" href="https://mezvidi.lv/">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_3.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_3.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Aiva G logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Aiva G, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2"
+								href="https://www.google.com/search?q=aiva+g+latvija">Meklēt</a>
+						</div>
+					</div>
+					<div class="carousel-item active" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_4.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_4.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Helle Oy logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Helle Oy</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2" href="https://www.helle.fi">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_5.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_5.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Signify logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Signify</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2"
+								href="https://www.signify.com/global">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_6.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_6.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma A.M.Ozoli logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">A.M.Ozoli, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2" href="https://www.amozoli.lv">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_7.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_7.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Baltijas Elektro Sabiedrība logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Baltijas Elektro Sabiedrība, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2" href="https://be.lv/">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_8.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_8.png') }}"
+								class="d-block mx-auto" alt="Rēzeknes Tehnoloģiju akadēmijas logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Rēzeknes Tehnoloģiju akadēmija</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2" href="https://www.rta.lv/">Mājaslapa</a>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/customers/logo_9.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/customers/logo_9.png') }}"
+								class="d-block mx-auto" alt="Uzņēmuma Energo Dizains logotips">
+						</picture>
+						<div class="text-center">
+							<h3 class="fw-bold">Energo dizains, SIA</h3>
+							<a target="_blank" rel="noreferrer" class="mb-2"
+								href="https://www.energodizains.lv/">Mājaslapa</a>
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Iepriekšējais</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Nākamais</span>
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- Certificates -->
+		<section class="certificates">
+			<a class="position-relative anchor" name="certificates"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="pt-4 pt-lg-3">Sertifikāti</h1>
+					</blockquote>
+					<figcaption class="blockquote-footer">Kvalitātes garantija!</figcaption>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			<div class="row justify-content-center">
+				<div class="col-12 col-sm-6 col-lg-4 scale">
+					<div data-aos="zoom-in" data-aos-offset="100">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/certificates/cert_1.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/certificates/cert_1.jpg') }}"
+								class="img-fluid d-block mx-auto my-2 my-lg-3" alt="Sertifikāts #1">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-4 scale">
+					<div data-aos="zoom-in" data-aos-offset="100">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/certificates/cert_2.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/certificates/cert_2.jpg') }}"
+								class="img-fluid d-block mx-auto my-2 my-lg-3" alt="Sertifikāts #2">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-4 scale">
+					<div data-aos="zoom-in" data-aos-offset="200">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/certificates/cert_3.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/certificates/cert_3.jpg') }}"
+								class="img-fluid d-block mx-auto my-2 my-lg-3" alt="Sertifikāts #3">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-4 scale">
+					<div data-aos="zoom-in" data-aos-offset="200">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/certificates/cert_4.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/certificates/cert_4.jpg') }}"
+								class="img-fluid d-block mx-auto my-2 my-lg-3" alt="Sertifikāts #4">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-4 scale">
+					<div data-aos="zoom-in" data-aos-offset="200">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/certificates/cert_5.webp') }}"
+								type="image/webp">
+							<img src="{{ url_for('static', filename='img/certificates/cert_5.jpg') }}"
+								class="img-fluid d-block mx-auto my-2 my-lg-3" alt="Sertifikāts #5">
+						</picture>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Projects -->
+		<section class="projects">
+			<a class="position-relative anchor" name="projects"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="mt-4 mt-lg-5">Projekti</h1>
+					</blockquote>
+					<blockquote class="blockquote-footer header">
+						<span class="fw-bold">Eiropas Solidaritātes korpuss</span><br>
+						<span>Dalībnieku pieredzes stāsti</span>
+					</blockquote>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			<div class="carousel carousel-dark slide" id="carousel_2" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="4500">
+						<div class="row justify-content-center mt-3">
+							<div class="col-lg-2">
+								<picture>
+									<source srcset="{{ url_for('static', filename='img/esk/lauris.webp') }}"
+										type="image/webp">
+									<img src="{{ url_for('static', filename='img/esk/lauris.jpg') }}"
+										class="d-block mx-auto rounded-circle" alt="Lauris Stirna">
+								</picture>
+							</div>
+							<div class="col-lg-8">
+								<p class="fst-italic fw-bold"><span class="material-icons">format_quote</span>
+									Mācījos par programmēšanas inženieri <a target="_blank" href="https://www.rta.lv/"
+										rel="noreferrer">Rēzeknes Tehnoloģiju
+										akadēmijā</a>.
+									Ieraudzīju akadēmijā sludinājumu par darba iespējām uzņēmumā Eiropas Komisijas
+									programmas
+									"<a target="_blank" href="https://europa.eu/youth/solidarity_lv"
+										rel="noreferrer">Eiropas
+										Solidaritātes korpusa</a>" darba projekta ietvaros.
+									Sazinājos, un ātri nonācām pie kopsaucēja: uzņēmumam vajadzēja mājaslapu, man
+									pieredzi. Ieguvu vērtīgu ierakstu savā CV, kā arī iepazinos no iekšienes ar visām
+									izstrādes niansēm.
+								</p>
+								<figcaption class="blockquote-footer mt-1 fw-bold">
+									<i>Lauris Stirna</i>
+								</figcaption>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="4500">
+						<div class="row justify-content-center mt-3">
+							<div class="col-lg-2">
+								<picture>
+									<source srcset="{{ url_for('static', filename='img/esk/viktorija.webp') }}"
+										type="image/webp">
+									<img src="{{ url_for('static', filename='img/esk/viktorija.jpg') }}"
+										class="d-block mx-auto rounded-circle" alt="Viktorija Piziča">
+								</picture>
+							</div>
+							<div class="col-lg-8">
+								<p class="fst-italic fw-bold"><span class="material-icons">format_quote</span>
+									<a target="_blank" href="https://www.rta.lv/" rel="noreferrer">Rēzeknes
+										Tehnoloģiju akadēmijā</a> studēju mehatroniku. Eiropas Komisijas programmas
+									"<a target="_blank" href="https://europa.eu/youth/solidarity_lv"
+										rel="noreferrer">Eiropas
+										Solidaritātes korpuss</a>"
+									darba projekta ietvaros ieguvu pirmo darba pieredzi uzņēmumā. Tā bija lieliska
+									iespēja iepazīt reālu darba vidi, saskarties ar dažādiem izaicinājumiem un
+									pilnveidoties, strādājot kolektīvā.
+								</p>
+								<figcaption class="blockquote-footer mt-1 fw-bold">
+									<i>Viktorija Piziča</i>
+								</figcaption>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="4500">
+						<div class="row justify-content-center mt-3">
+							<div class="col-lg-2">
+								<picture>
+									<source srcset="{{ url_for('static', filename='img/esk/rudolfs.webp') }}"
+										type="image/webp">
+									<img src="{{ url_for('static', filename='img/esk/rudolfs.jpg') }}"
+										class="d-block mx-auto rounded-circle" alt="Rūdolfs Čeirs">
+								</picture>
+							</div>
+							<div class="col-lg-8">
+								<p class="fst-italic fw-bold"><span class="material-icons">format_quote</span>
+									Studējot <a target="_blank" href="https://www.rta.lv/" rel="noreferrer">
+										Rēzeknes Tehnoloģiju akadēmijas</a> mehatronikas specialitātē, pieņēmu priekš
+									sevis izaicinošu iespēju piedalīties Eiropas Komisijas programmas "<a
+										target="_blank" href="https://europa.eu/youth/solidarity_lv"
+										rel="noreferrer">Eiropas Solidaritātes korpuss</a>" darba projektā. Tā bija
+									lieliska pieredze akadēmijā gūtās teorētiskās zināšanas pielietot praksē. Jūtama
+									liela izaugsme gan savā specialitātē, gan arī komunikācijā ar darba kolektīvu un
+									klientiem. Šis bija drošs un veiksmīgs solis manai izaugsmei!
+								</p>
+								<figcaption class="blockquote-footer mt-1 fw-bold">
+									<i>Rūdolfs Čeirs</i>
+								</figcaption>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="4500">
+						<div class="row justify-content-center mt-3">
+							<div class="col-lg-2">
+								<picture>
+									<source srcset="{{ url_for('static', filename='img/esk/vitalijs.webp') }}"
+										type="image/webp">
+									<img src="{{ url_for('static', filename='img/esk/vitalijs.jpg') }}"
+										class="d-block mx-auto rounded-circle" alt="Vitālijs Jurčs">
+								</picture>
+							</div>
+							<div class="col-lg-8">
+								<p class="fst-italic fw-bold"><span class="material-icons">format_quote</span>
+									Būdams students, piedalījos Eiropas Komisijas programmas
+									"<a target="_blank" href="https://europa.eu/youth/solidarity_lv"
+										rel="noreferrer">Eiropas
+										Solidaritātes korpuss</a>"
+									darba projektā. Tā bija iespēja uzsākt pirmās darba gaitas un gūt pirmo pieredzi
+									uzņēmumā. Strādāju amatā, kas līdzīgs tam, ko apguvu <a target="_blank"
+										href="https://www.rta.lv/" rel="noreferrer">Rēzeknes Tehnoloģiju
+										akadēmijā</a> - mehatroniķis. Iegūtā pieredze ietvēra sevī gan montāžas darbus,
+									gan mazo projektu izstrādi, gan komunikāciju ar kolēģiem. Viss iepriekš minētais,
+									atziņas, kā arī <a target="_blank" href="https://www.youthpass.eu/lv/"
+										rel="noreferrer">Youthpass</a> sertifikāts noteikti palīdzēs nākotnē.
+								</p>
+								<figcaption class="blockquote-footer mt-1 fw-bold">
+									<i>Vitālijs Jurčs</i>
+								</figcaption>
+							</div>
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carousel_2"
+						data-bs-slide="prev">
+						<span class="carousel-control-prev-icon mb-5" aria-hidden="true"></span>
+						<span class="visually-hidden">Iepriekšējais</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carousel_2"
+						data-bs-slide="next">
+						<span class="carousel-control-next-icon mb-5" aria-hidden="true"></span>
+						<span class="visually-hidden">Nākamais</span>
+					</button>
+				</div>
+			</div>
+			<div class="row justify-content-center collaborators">
+				<div class="col-10">
+					<div data-aos="fade-up">
+						<p class="text-center">
+							Projekti "<span class="fst-italic fw-bold">Atbalsts jaunietim pirmajā darba vietā</span>"
+							(1) un
+							"<span class="fst-italic fw-bold">Patstāvīgs jaunietis darba tirgū iespēja patstāvībai darba
+								tirgus
+								jaunpienācējiem</span>" (2) tika finansēti ar Eiropas Komisijas
+							programmas "Eiropas Solidaritātes korpusa" atbalstu.
+							Šī publikācija atspoguļo vienīgi autoru uzskatus, un Komisijai nevar uzlikt atbildību par
+							tajā ietvertās informācijas jebkādu iespējamo izlietojumu.<br><br>
+							(1) Līguma numurs: <span class="fw-bold">2020-3-LV02-ESC21-003633</span><br>
+							(2) Līguma numurs: <span class="fw-bold">2020-2-LV02-ESC21-003336</span>
+						</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div data-aos="fade-right">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/esk/jspa.webp') }}" type="image/webp">
+							<img src="{{ url_for('static', filename='img/esk/jspa.png') }}"
+								alt="Jaunatnes Starptautisko Programmu Aģentūra" class="d-block mx-auto">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div data-aos="fade-left">
+						<picture>
+							<source srcset="{{ url_for('static', filename='img/esk/eu.webp') }}" type="image/webp">
+							<img src="{{ url_for('static', filename='img/esk/eu.png') }}" alt="Eiropas Savienība"
+								class="d-block mx-auto">
+						</picture>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Useful links -->
+		<section class="useful">
+			<a class="position-relative anchor" name="useful"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="pt-4 pt-lg-3">Noderīgas saites</h1>
+					</blockquote>
+					<figcaption class="blockquote-footer">Tas var noderēt!</figcaption>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			<div class="row">
+				<div class="col-12">
+					<ul>
+						<li data-aos="fade-up">Mikroģeneratora pieslēgšanas pieteikums klientu portālā <a
+								target="_blank"
+								href="https://www.e-st.lv/lv/private/pieteikt-pakalpojumu/st-pieslegumi/mikrogeneratora-pieslegsana-1/jauna-mikrogeneratora-pieslegsana/step/1"
+								rel="noreferrer" class="fw-bold">e-st.lv</a>
+						</li>
+						<li data-aos="fade-up">Mikroģeneratora pieslēgšana <a target="_blank"
+								href="https://sadalestikls.lv/lv/mikrogeneratora-pieslegsana" rel="noreferrer"
+								class="fw-bold">sadalestikls.lv</a>
+						</li>
+						<li data-aos="fade-up">SIA Energo dizains mājaslapa <a target="_blank"
+								href="https://www.energodizains.lv/" rel="noreferrer"
+								class="fw-bold">energodizains.lv</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- Contact us -->
+		<section class="contact_us">
+			<a class="position-relative anchor" name="contact_us"></a>
+			<div data-aos="fade-up">
+				<figure class="text-center">
+					<blockquote class="blockquote">
+						<h2 class="pt-4 pt-lg-3">Sazināties ar mums</h1>
+					</blockquote>
+					<figcaption class="blockquote-footer">Radās interese? Pajautā!<br>
+						Raksti pa taisno, vai izmanto formu zemāk.
+					</figcaption>
+				</figure>
+			</div>
+			<hr class="mt-lg-3 mt-xl-5">
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			<div class="alert alert-{{ category }} alert-dismissible rounded-pill fw-bold" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+			<form method="post">
+				{{ form.hidden_tag() }}
+				<div class="row justify-content-center gx-0">
+					<div class="col-12 col-md-6 col-xl-5 col-xxl-4">
+						<div data-aos="fade-right" data-aos-offset="200">
+							{{ form.name() }}
+							{{ form.email() }}
+							{{ form.subject() }}
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-xl-5 col-xxl-4">
+						<div data-aos="fade-left" data-aos-offset="200">
+							{{ form.message() }}
+						</div>
+					</div>
+					<div class="col-12 d-flex justify-content-center mt-1">
+						<div data-aos="fade-up" data-aos-offset="300">
+							{{ form.recaptcha() }}
+							<button type="submit" class="btn btn-dark d-block mx-auto my-2">Nosūtīt</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
+</div>
+<!-- Prefooter -->
+<a class="position-relative anchor" name="contacts"></a>
+<div class="container-fluid prefooter-image">
+	<div class="container">
+		<section class="prefooter">
+			<div class="row justify-content-center">
+				<div class="col-10">
+					<div data-aos="fade-down">
+						<h2 class="text-center fw-bold my-3 my-md-4 my-xxl-5">Kontakti</h2>
+					</div>
+				</div>
+				<div class="col-10 col-sm-9 col-md-8 col-lg-6">
+					<div data-aos="fade-right">
+						<h3 class="text-center my-3 my-xxl-4"><span class="material-icons">call</span>&nbsp;Tel.nr:
+							<a href="tel:+37128648288">(+371) 28 648 288</a>
+						</h3>
+						<h3 class="text-center"><span class="material-icons">email</span>&nbsp;E-pasts:
+							<a href="mailto:affixsia@inbox.lv">affixsia@inbox.lv</a>
+						</h3>
+					</div>
+				</div>
+				<div class="col-10 col-sm-9 col-md-8 col-lg-6">
+					<div data-aos="fade-left">
+						<h3 class="text-center my-3 my-xxl-4"><span class="material-icons">badge</span>&nbsp;Vienotais
+							reģ.nr:
+							<span>42403039480</span>
+						</h3>
+						<h3 class="text-center"><span class="material-icons">home</span>&nbsp;Juridiskā adrese:
+							<span>2-4, Nagļi, Nagļu pagasts, Rēzeknes novads, LV-4631</span>
+						</h3>
+					</div>
+				</div>
+				<div class="col-8">
+					<div data-aos="fade-up">
+						<p class="text-center mt-3 mt-lg-5">
+							Uzņēmumam ir pieredze prakses vietas nodrošināšanā augstskolu studentiem.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+{% include 'modals.html' %}
+{% endblock %}

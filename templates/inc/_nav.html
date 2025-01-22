@@ -1,0 +1,43 @@
+<nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+	<div class="container">
+		{% if current_month == 'December' %}
+		<a class="navbar-brand p-0" href="/">
+			<picture>
+				<source srcset="{{ url_for('static', filename='img/logos/logo_december.webp') }}" type="image/webp">
+				<img src="{{ url_for('static', filename='img/logos/logo_december.png') }}" alt="Affix logo December"
+					id="logo_december">
+			</picture>
+		</a>
+		{% elif current_month == 'November' %}
+		<a class="navbar-brand p-0" href="/">
+			<picture>
+				<source srcset="{{ url_for('static', filename='img/logos/logo_november.webp') }}" type="image/webp">
+				<img src="{{ url_for('static', filename='img/logos/logo_november.png') }}" alt="Affix logo November"
+					id="logo_november">
+			</picture>
+		</a>
+		{% else %}
+		<a class="navbar-brand p-0" href="/">
+			<picture>
+				<source srcset="{{ url_for('static', filename='img/logos/logo_default.webp') }}" type="image/webp">
+				<img src="{{ url_for('static', filename='img/logos/logo_default.png') }}" alt="Affix logo default"
+					id="logo_default">
+			</picture>
+		</a>
+		{% endif %}
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="nav">
+			<ul class="navbar-nav ms-lg-auto fw-bold">
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#partners">Partneri</a></li>
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#certificates">Sertifikāti</a></li>
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#projects">Projekti</a></li>
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#useful">Noderīgi</a></li>
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#contact_us">Saziņa</a></li>
+				<li class="ms-3 ms-lg-0 me-lg-3 mt-2 mt-lg-0"><a href="#contacts">Kontakti</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>

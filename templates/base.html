@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SIA "Affix" | Elektroietaises un saules paneļi</title>
+    <meta name="description"
+        content="Projektējam un būvējam elektroietaises, veicam to autoruzraudzību un būvuzraudzību, vadām izbūves darbus un mērām tehniskos parametrus. Ieviešam saules paneļus.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="canonical" href="https://www.affix.lv/">
+    <link rel="icon" href="{{ url_for('static', filename='img/logos/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logos/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logos/favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="{{ static_url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        {% include 'inc/_nav.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+        {% include 'cookie.html' %}
+    </main>
+    <footer class="py-4">
+        {% include 'inc/_foo.html' %}
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/modernizr-custom.js') }}"></script>
+    <script src="{{ static_url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
