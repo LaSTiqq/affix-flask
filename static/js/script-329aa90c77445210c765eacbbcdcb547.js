@@ -15,13 +15,13 @@ const scrollFunction = () => {
   };
 
   if (scrolled) {
-    setLogoSize(logoDefault, "140px", "80px");
-    setLogoSize(logoNovember, "140px", "80px");
-    setLogoSize(logoDecember, "140px", "80px");
+    setLogoSize(logoDefault, "140px", "71px");
+    setLogoSize(logoNovember, "140px", "71px");
+    setLogoSize(logoDecember, "140px", "71px");
   } else {
-    setLogoSize(logoDefault, "175px", "95px");
-    setLogoSize(logoNovember, "175px", "95px");
-    setLogoSize(logoDecember, "175px", "95px");
+    setLogoSize(logoDefault, "175px", "88px");
+    setLogoSize(logoNovember, "175px", "88px");
+    setLogoSize(logoDecember, "175px", "88px");
   }
 };
 
