@@ -15,12 +15,12 @@ const scrollFunction = () => {
   };
 
   if (scrolled) {
-    setLogoSize(logoDefault, "130px", "70px");
-    setLogoSize(logoNovember, "130px", "70px");
-    setLogoSize(logoDecember, "145px", "85px");
+    setLogoSize(logoDefault, "140px", "80px");
+    setLogoSize(logoNovember, "140px", "80px");
+    setLogoSize(logoDecember, "140px", "80px");
   } else {
-    setLogoSize(logoDefault, "160px", "80px");
-    setLogoSize(logoNovember, "160px", "80px");
+    setLogoSize(logoDefault, "175px", "95px");
+    setLogoSize(logoNovember, "175px", "95px");
     setLogoSize(logoDecember, "175px", "95px");
   }
 };
@@ -77,4 +77,26 @@ AOS.init({
   startEvent: "DOMContentLoaded",
   once: true,
   duration: 800,
+});
+
+// Cookie
+document.getElementById("accept-cookies")?.addEventListener("click", () => {
+  const csrfToken = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
+
+  fetch("/accept-cookies", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrfToken,
+    },
+  }).then((response) => {
+    if (response.ok) {
+      document.getElementById("cookie-notification").style.visibility =
+        "hidden";
+      document.getElementById("cookie-notification").style.opacity = "0";
+      document.getElementById("cookie-notification").style.transition = "0.5s";
+    }
+  });
 });

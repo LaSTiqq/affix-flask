@@ -1,13 +1,12 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, make_response, Response
-from flask_wtf.csrf import CSRFProtect
-from flask_mail import Message, Mail
 from flask_static_digest import FlaskStaticDigest
+from flask_wtf.csrf import CSRFProtect
 from flask_talisman import Talisman
+from flask_mail import Message, Mail
 from config import Config
 from utils import restricted_list, year_and_month
 from forms import ContactForm
 import re
-import os
 
 flask_static_digest = FlaskStaticDigest()
 
@@ -15,22 +14,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 flask_static_digest.init_app(app)
-
-app.secret_key = os.getenv("SECRET_KEY")
 csrf = CSRFProtect(app)
-
 talisman = Talisman(app, content_security_policy=None, force_https=False)
-
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
-app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
 mail = Mail(app)
-
-app.config['RECAPTCHA_PUBLIC_KEY'] = os.getenv("RECAPTCHA_PUBLIC_KEY")
-app.config['RECAPTCHA_PRIVATE_KEY'] = os.getenv("RECAPTCHA_PRIVATE_KEY")
-app.config['RECAPTCHA_PARAMETERS'] = {'hl': 'lv'}
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -49,7 +35,7 @@ def index():
             msg = Message(
                 subject=form.subject.data,
                 sender=app.config['MAIL_USERNAME'],
-                recipients=['lavrencij@inbox.lv'],
+                recipients=['affixsia@inbox.lv'],
                 body=text_content
             )
             msg.html = html_content
@@ -84,3 +70,23 @@ def sitemap_xml():
 def robots_txt():
     content = render_template('crawlers/robots.txt')
     return Response(content, mimetype='text/plain')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template(
+        "error.html",
+        error_code=404,
+        error_message="Page Not Found",
+        error_comment="Jūs esat nokļuvis uz neeksistējošu lapu."
+    ), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template(
+        "error.html",
+        error_code=500,
+        error_message="Internal Server Error",
+        error_comment="Radās kļūda un serveris nespēja izpildīt Jūsu pieprasījumu."
+    ), 500

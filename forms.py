@@ -11,11 +11,10 @@ class ContactForm(FlaskForm):
             'class': 'form-control bg-transparent ms-auto mt-2',
             'placeholder': 'Vārds',
             'autocomplete': 'off',
-            'maxlength': '15',
         },
         validators=[
             DataRequired(),
-            Length(min=4)
+            Length(min=4, max=15)
         ],
     )
     email = EmailField(
@@ -36,11 +35,10 @@ class ContactForm(FlaskForm):
             'class': 'form-control bg-transparent ms-auto mt-2',
             'placeholder': 'Temats',
             'autocomplete': 'off',
-            'maxlength': '25',
         },
         validators=[
             DataRequired(),
-            Length(min=5)
+            Length(min=5, max=25)
         ],
     )
     message = TextAreaField(

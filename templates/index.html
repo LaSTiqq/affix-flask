@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- Home -->
-<section class="home">
-	<div class="container-fluid">
-		<div class="container">
+<div class="container-fluid bg-home">
+	<div class="container">
+		<!-- Home -->
+		<section class="home">
 			<div class="row justify-content-center">
 				<div class="height"></div>
 				<div class="col-12 col-md-10">
@@ -19,12 +19,12 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
-</section>
-<!-- Services -->
-<div class="container-fluid main">
+</div>
+<div class="container-fluid bg-main">
 	<div class="container">
+		<!-- Services -->
 		<section class="services">
 			<a class="position-relative anchor" name="services"></a>
 			<div data-aos="fade-up">
@@ -37,7 +37,6 @@
 			</div>
 			<hr class="mt-lg-3 mt-xl-5">
 			<div class="row">
-				<!-- Modal button 1 -->
 				<div class="col-6 col-lg-3">
 					<div data-aos="zoom-in-right" data-aos-offset="200">
 						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -49,7 +48,6 @@
 						<h3 class="text-center mt-3">Elektroietaišu projektēšana un autoruzraudzība</h3>
 					</div>
 				</div>
-				<!-- Modal button 2 -->
 				<div class="col-6 col-lg-3">
 					<div data-aos="zoom-in-right" data-aos-offset="200">
 						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -61,7 +59,6 @@
 						<h3 class="text-center mt-3">Elektroietaišu izbūve</h3>
 					</div>
 				</div>
-				<!-- Modal button 3 -->
 				<div class="col-6 col-lg-3">
 					<div data-aos="zoom-in-left" data-aos-offset="200">
 						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -73,7 +70,6 @@
 						<h3 class="text-center mt-3">Elektroietaišu izbūves darbu vadīšana un būvuzraudzība</h3>
 					</div>
 				</div>
-				<!-- Modal button 4 -->
 				<div class="col-6 col-lg-3">
 					<div data-aos="zoom-in-left" data-aos-offset="200">
 						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -91,7 +87,6 @@
 							ierīkošana</p>
 					</div>
 				</div>
-				<!-- Modal button 5 -->
 				<div class="col-12">
 					<div data-aos="zoom-in-up" data-aos-offset="200">
 						<div class="overlay" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -103,7 +98,6 @@
 						<h3 class="text-center mt-3">Saules enerģētika<br>
 							<span class="text-danger fw-bold position-relative new">Jaunums!</span>
 						</h3>
-						<!-- Modal button 6 -->
 						<button class="button text-center fw-bold d-block mx-auto" data-bs-toggle="modal"
 							data-bs-target="#Modal6">Uzzināt vairāk
 						</button>
@@ -576,11 +570,11 @@
 		</section>
 	</div>
 </div>
-<!-- Prefooter -->
-<a class="position-relative anchor" name="contacts"></a>
-<div class="container-fluid prefooter-image">
+<div class="container-fluid bg-prefooter">
 	<div class="container">
+		<!-- Prefooter -->
 		<section class="prefooter">
+			<a class="position-relative anchor" name="contacts"></a>
 			<div class="row justify-content-center">
 				<div class="col-10">
 					<div data-aos="fade-down">
@@ -619,5 +613,4 @@
 		</section>
 	</div>
 </div>
-{% include 'modals.html' %}
 {% endblock %}
