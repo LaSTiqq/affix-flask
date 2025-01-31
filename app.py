@@ -4,7 +4,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_talisman import Talisman
 from flask_mail import Message, Mail
 from config import Config
-from utils import restricted_list, year_and_month
+from utils import restricted_list, year_and_month, redirect_with_anchor
 from forms import ContactForm
 import re
 
@@ -27,7 +27,7 @@ def index():
     if form.validate_on_submit():
         if any(restricted_list(form[field].data) for field in ['name', 'subject', 'message']):
             flash("Jūs ievadījāt kaut ko aizliegtu! Mēģiniet vēlreiz.", "warning")
-            return redirect(url_for("index") + "#contact_us")
+            return redirect_with_anchor("contact_us")
         html_content = render_template("email.html", name=form.name.data,
                                        sender=form.email.data, content=form.message.data)
         text_content = re.sub(r"<[^>]+>", "", html_content)
@@ -41,14 +41,14 @@ def index():
             msg.html = html_content
             mail.send(msg)
             flash("Vēstule nosūtīta!", "success")
-            return redirect(url_for("index") + "#contact_us")
+            return redirect_with_anchor("contact_us")
         except Exception:
             flash("Kaut kas nogāja greizi! Mēģiniet vēlreiz.", "danger")
-            return redirect(url_for("index") + "#contact_us")
+            return redirect_with_anchor("contact_us")
     if form.errors:
         if 'recaptcha' in form.errors:
             flash("Captcha netika izpildīta! Mēģiniet vēlreiz.", "warning")
-        return redirect(url_for("index") + "#contact_us")
+        return redirect_with_anchor("contact_us")
     return render_template('index.html', form=form, current_month=current_month, current_year=current_year, cookie_accepted=cookie_accepted)
 
 
