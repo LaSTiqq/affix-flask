@@ -7,22 +7,26 @@ from flask_wtf.recaptcha import RecaptchaField
 class ContactForm(FlaskForm):
     name = StringField(
         label='Vārds',
+        id='name',
         render_kw={
             'class': 'form-control bg-transparent ms-auto mt-2',
             'placeholder': 'Vārds',
             'autocomplete': 'off',
+            'value': 'Jānis',
         },
         validators=[
             DataRequired(),
-            Length(min=4, max=15)
+            Length(min=3, max=15)
         ],
     )
     email = EmailField(
         label='E-pasts',
+        id='email',
         render_kw={
             'class': 'form-control bg-transparent ms-auto mt-2',
             'placeholder': 'E-pasts',
             'autocomplete': 'off',
+            'value': 'janis.celotajs@gmail.com',
         },
         validators=[
             DataRequired(),
@@ -31,10 +35,12 @@ class ContactForm(FlaskForm):
     )
     subject = StringField(
         label='Temats',
+        id='subject',
         render_kw={
             'class': 'form-control bg-transparent ms-auto mt-2',
             'placeholder': 'Temats',
             'autocomplete': 'off',
+            'value': 'Darba iespējas',
         },
         validators=[
             DataRequired(),
@@ -42,12 +48,13 @@ class ContactForm(FlaskForm):
         ],
     )
     message = TextAreaField(
-        label='Teksts',
+        label='Ziņojums',
+        id='message',
         render_kw={
-            'class': 'form-control bg-transparent me-auto ms-md-2 mt-2 pt-3',
-            'placeholder': 'Teksts',
+            'class': 'form-control bg-transparent me-auto mt-2',
+            'placeholder': 'Ziņa',
             'autocomplete': 'off',
-            'rows': 5,
+            'value': 'Ziņojums',
         },
         validators=[
             DataRequired(),
