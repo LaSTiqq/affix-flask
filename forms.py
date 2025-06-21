@@ -52,13 +52,12 @@ class ContactForm(FlaskForm):
         id='message',
         render_kw={
             'class': 'form-control bg-transparent me-auto mt-2',
-            'placeholder': 'Ziņa',
+            'placeholder': 'Ziņojums',
             'autocomplete': 'off',
-            'value': 'Ziņojums',
         },
         validators=[
             DataRequired(),
-            Length(min=50)
+            Length(min=20)
         ],
     )
     recaptcha = RecaptchaField(label='Captcha')
