@@ -9,7 +9,7 @@ class ContactForm(FlaskForm):
         label='Vārds',
         id='name',
         render_kw={
-            'class': 'form-control bg-transparent ms-auto mt-2',
+            'class': 'form-control bg-transparent mt-2',
             'placeholder': 'Vārds',
             'autocomplete': 'off',
             'value': 'Jānis',
@@ -23,7 +23,7 @@ class ContactForm(FlaskForm):
         label='E-pasts',
         id='email',
         render_kw={
-            'class': 'form-control bg-transparent ms-auto mt-2',
+            'class': 'form-control bg-transparent mt-2',
             'placeholder': 'E-pasts',
             'autocomplete': 'off',
             'value': 'janis.celotajs@gmail.com',
@@ -37,7 +37,7 @@ class ContactForm(FlaskForm):
         label='Temats',
         id='subject',
         render_kw={
-            'class': 'form-control bg-transparent ms-auto mt-2',
+            'class': 'form-control bg-transparent mt-2',
             'placeholder': 'Temats',
             'autocomplete': 'off',
             'value': 'Darba iespējas',
@@ -51,7 +51,7 @@ class ContactForm(FlaskForm):
         label='Ziņojums',
         id='message',
         render_kw={
-            'class': 'form-control bg-transparent me-auto mt-2',
+            'class': 'form-control bg-transparent mt-2',
             'placeholder': 'Ziņojums',
             'autocomplete': 'off',
         },

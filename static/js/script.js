@@ -100,3 +100,54 @@ document.getElementById("accept-cookies")?.addEventListener("click", () => {
     }
   });
 });
+
+//AJAX form submission
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form");
+  const loader = document.getElementById("loader");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    loader.classList.remove("d-none");
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/send-ajax", {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": formData.get("csrf_token"),
+        },
+        body: formData,
+      });
+
+      const result = await response.json();
+      showAlert(result.message, result.status);
+
+      if (result.status !== "info") {
+        form.reset();
+        grecaptcha.reset();
+      }
+    } catch (err) {
+      showAlert("Radās kļūda! Mēģiniet vēlreiz.", "danger");
+    } finally {
+      loader.classList.add("d-none");
+      r;
+    }
+  });
+
+  function showAlert(message, type) {
+    const alert = document.getElementById("alert");
+
+    alert.className = `alert alert-${type} alert-dismissible rounded-pill fw-bold d-block`;
+    alert.innerHTML = `
+    ${message}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Aizvērt"></button>
+  `;
+
+    setTimeout(() => {
+      alert.classList.add("d-none");
+      alert.className = "alert d-none";
+    }, 4000);
+  }
+});

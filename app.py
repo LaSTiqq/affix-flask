@@ -1,10 +1,10 @@
-from flask import Flask, render_template, flash, redirect, url_for, request, make_response, Response
+from flask import Flask, render_template, make_response, Response, request, jsonify
 from flask_static_digest import FlaskStaticDigest
 from flask_wtf.csrf import CSRFProtect
 from flask_talisman import Talisman
 from flask_mail import Message, Mail
 from config import Config
-from utils import restricted_list, year_and_month, redirect_with_anchor
+from utils import restricted_list, year_and_month
 from forms import ContactForm
 import re
 
@@ -19,15 +19,20 @@ talisman = Talisman(app, content_security_policy=None, force_https=False)
 mail = Mail(app)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
     current_month, current_year = year_and_month()
     cookie_accepted = request.cookies.get("cookie_accepted") == "true"
     form = ContactForm()
+    return render_template('index.html', form=form, current_month=current_month, current_year=current_year, cookie_accepted=cookie_accepted)
+
+
+@app.route("/send-ajax", methods=["POST"])
+def send_ajax():
+    form = ContactForm()
     if form.validate_on_submit():
         if any(restricted_list(form[field].data) for field in ['name', 'subject', 'message']):
-            flash("Jūs ievadījāt kaut ko aizliegtu! Mēģiniet vēlreiz.", "warning")
-            return redirect_with_anchor("contact_us")
+            return jsonify({"status": "warning", "message": "Jūs ievadījāt kaut ko aizliegtu!"}), 400
         html_content = render_template("email.html", name=form.name.data,
                                        sender=form.email.data, content=form.message.data)
         text_content = re.sub(r"<[^>]+>", "", html_content)
@@ -40,16 +45,11 @@ def index():
             )
             msg.html = html_content
             mail.send(msg)
-            flash("Vēstule nosūtīta!", "success")
-            return redirect_with_anchor("contact_us")
+            return jsonify({"status": "success", "message": "Vēstule nosūtīta!"})
         except Exception:
-            flash("Kaut kas nogāja greizi! Mēģiniet vēlreiz.", "danger")
-            return redirect_with_anchor("contact_us")
-    if form.errors:
-        if 'recaptcha' in form.errors:
-            flash("Captcha netika izpildīta! Mēģiniet vēlreiz.", "warning")
-        return redirect_with_anchor("contact_us")
-    return render_template('index.html', form=form, current_month=current_month, current_year=current_year, cookie_accepted=cookie_accepted)
+            return jsonify({"status": "danger", "message": "Kaut kas nogāja greizi!"}), 500
+    else:
+        return jsonify({"status": "warning", "message": "Captcha netika izpildīta!"}), 400
 
 
 @app.route("/accept-cookies", methods=["POST"])
