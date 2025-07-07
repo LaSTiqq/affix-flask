@@ -132,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showAlert("Radās kļūda! Mēģiniet vēlreiz.", "danger");
     } finally {
       loader.classList.add("d-none");
-      r;
     }
   });
 
