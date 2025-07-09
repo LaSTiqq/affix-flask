@@ -34,13 +34,13 @@ def send_ajax():
         if any(restricted_list(form[field].data) for field in ['name', 'subject', 'message']):
             return jsonify({"status": "warning", "message": "Jūs ievadījāt kaut ko aizliegtu!"}), 400
         html_content = render_template("email.html", name=form.name.data,
-                                       sender=form.email.data, content=form.message.data)
+                                       email=form.email.data, message=form.message.data)
         text_content = re.sub(r"<[^>]+>", "", html_content)
         try:
             msg = Message(
                 subject=form.subject.data,
                 sender=app.config['MAIL_USERNAME'],
-                recipients=['affixsia@inbox.lv'],
+                recipients=['lavrencij@inbox.lv'],
                 body=text_content
             )
             msg.html = html_content
