@@ -32,7 +32,7 @@ def send_ajax():
     form = ContactForm()
     if form.validate_on_submit():
         if any(restricted_list(form[field].data) for field in ['name', 'subject', 'message']):
-            return jsonify({"status": "warning", "message": "Jūs ievadījāt kaut ko aizliegtu!"}), 400
+            return jsonify({"status": "warning", "message": "Jūs ievadījāt kaut ko aizliegtu! Lūdzu, mēģiniet vēlreiz."}), 400
         html_content = render_template("email.html", name=form.name.data,
                                        email=form.email.data, message=form.message.data)
         text_content = re.sub(r"<[^>]+>", "", html_content)
@@ -40,16 +40,16 @@ def send_ajax():
             msg = Message(
                 subject=form.subject.data,
                 sender=app.config['MAIL_USERNAME'],
-                recipients=['lavrencij@inbox.lv'],
+                recipients=['affixsia@inbox.lv'],
                 body=text_content
             )
             msg.html = html_content
             mail.send(msg)
             return jsonify({"status": "success", "message": "Vēstule nosūtīta!"})
         except Exception:
-            return jsonify({"status": "danger", "message": "Kaut kas nogāja greizi!"}), 500
+            return jsonify({"status": "danger", "message": "Kaut kas nogāja greizi! Lūdzu, mēģiniet vēlreiz."}), 500
     else:
-        return jsonify({"status": "warning", "message": "Captcha netika izpildīta!"}), 400
+        return jsonify({"status": "warning", "message": "Captcha netika izpildīta! Lūdzu, mēģiniet vēlreiz."}), 400
 
 
 @app.route("/accept-cookies", methods=["POST"])
