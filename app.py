@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response, Response, request, jsonify
+from flask import Flask, render_template, Response, jsonify
 from flask_static_digest import FlaskStaticDigest
 from flask_wtf.csrf import CSRFProtect
 from flask_talisman import Talisman
@@ -22,9 +22,8 @@ mail = Mail(app)
 @app.route("/", methods=["GET"])
 def index():
     current_month, current_year = year_and_month()
-    cookie_accepted = request.cookies.get("cookie_accepted") == "true"
     form = ContactForm()
-    return render_template('index.html', form=form, current_month=current_month, current_year=current_year, cookie_accepted=cookie_accepted)
+    return render_template('index.html', form=form, current_month=current_month, current_year=current_year)
 
 
 @app.route("/send-ajax", methods=["POST"])
@@ -52,14 +51,6 @@ def send_ajax():
         return jsonify({"status": "warning", "message": "Captcha netika izpildīta! Lūdzu, mēģiniet vēlreiz."}), 400
 
 
-@app.route("/accept-cookies", methods=["POST"])
-def accept_cookies():
-    response = make_response("Cookie Accepted")
-    response.set_cookie("cookie_accepted", "true",
-                        max_age=31536000, secure=True)
-    return response
-
-
 @app.route('/sitemap.xml')
 def sitemap_xml():
     content = render_template('crawlers/sitemap.xml')
@@ -78,7 +69,7 @@ def page_not_found(e):
         "error.html",
         error_code=404,
         error_message="Page Not Found",
-        error_comment="Jūs esat nokļuvis uz neeksistējošu lapu."
+        error_comment="Šī lapa neeksistē"
     ), 404
 
 
@@ -88,5 +79,5 @@ def internal_server_error(e):
         "error.html",
         error_code=500,
         error_message="Internal Server Error",
-        error_comment="Radās kļūda un serveris nespēja izpildīt Jūsu pieprasījumu."
+        error_comment="Serveris nespēja izpildīt Jūsu pieprasījumu"
     ), 500
