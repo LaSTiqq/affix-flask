@@ -7,21 +7,20 @@ const scrollFunction = () => {
   const scrolled =
     document.body.scrollTop > 50 || document.documentElement.scrollTop > 50;
 
-  const setLogoSize = (logo, width, height) => {
+  const setLogoSize = (logo, width) => {
     if (logo) {
       logo.style.width = width;
-      logo.style.height = height;
     }
   };
 
   if (scrolled) {
-    setLogoSize(logoDefault, "140px", "71px");
-    setLogoSize(logoNovember, "140px", "71px");
-    setLogoSize(logoDecember, "140px", "71px");
+    setLogoSize(logoDefault, "115px");
+    setLogoSize(logoNovember, "115px");
+    setLogoSize(logoDecember, "115px");
   } else {
-    setLogoSize(logoDefault, "175px", "88px");
-    setLogoSize(logoNovember, "175px", "88px");
-    setLogoSize(logoDecember, "175px", "88px");
+    setLogoSize(logoDefault, "145px");
+    setLogoSize(logoNovember, "145px");
+    setLogoSize(logoDecember, "145px");
   }
 };
 
