@@ -80,21 +80,65 @@ AOS.init({
 
 //AJAX form submission
 document.addEventListener("DOMContentLoaded", () => {
+  "use strict";
+
   const form = document.getElementById("form");
   const loader = document.getElementById("loader");
+  const alertBox = document.getElementById("alert");
+  const fields = form.querySelectorAll("input, textarea");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  fields.forEach((field) => {
+    field.addEventListener("input", () => {
+      if (!field.checkValidity()) {
+        field.classList.add("is-invalid");
+        field.classList.remove("is-valid");
+      } else {
+        field.classList.remove("is-invalid");
+        field.classList.add("is-valid");
+      }
+    });
+  });
 
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+
+      const firstInvalid = form.querySelector(":invalid");
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstInvalid.focus({ preventScroll: true });
+      }
+
+      return;
+    }
+
+    if (typeof grecaptcha !== "undefined") {
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse || recaptchaResponse.length === 0) {
+        alertBox.className = "alert alert-danger alert-dismissible rounded-pill fw-bold d-block";
+        alertBox.innerHTML = `
+          Lūdzu, apstipriniet, ka neesat robots!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Aizvērt"></button>
+        `;
+        alertBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+    } else {
+      console.error("reCAPTCHA not loaded yet!");
+      return;
+    }
+
+    form.classList.add("was-validated");
     loader.classList.remove("d-none");
     const formData = new FormData(form);
 
     try {
       const response = await fetch("/send-ajax", {
         method: "POST",
-        headers: {
-          "X-CSRFToken": formData.get("csrf_token"),
-        },
+        headers: { "X-CSRFToken": formData.get("csrf_token") },
         body: formData,
       });
 
@@ -103,6 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (result.status !== "info") {
         form.reset();
+        form.classList.remove("was-validated");
+        fields.forEach((f) => f.classList.remove("is-valid", "is-invalid"));
         grecaptcha.reset();
       }
     } catch (err) {
@@ -113,17 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function showAlert(message, type) {
-    const alert = document.getElementById("alert");
-
-    alert.className = `alert alert-${type} alert-dismissible rounded-pill fw-bold d-block`;
-    alert.innerHTML = `
-    ${message}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Aizvērt"></button>
-  `;
-
+    alertBox.className = `alert alert-${type} alert-dismissible rounded-pill fw-bold d-block`;
+    alertBox.innerHTML = `
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Aizvērt"></button>
+    `;
     setTimeout(() => {
-      alert.classList.add("d-none");
-      alert.className = "alert d-none";
+      alertBox.className = "alert d-none";
     }, 4000);
   }
 });
